@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>chat</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="static/css/chatGeneral.css">
+</head>
+<body>
+	<div id="contenedorMensajes">
+	</div>
+	<form id="contenedorMensaje" action="https://www.google.com.ec/">
+		<textarea id="cajaTexto"></textarea> 
+		<input id="send" type="submit" name="" value="enviar">
+	</form>
+	<script src="/socket.io/socket.io.js"></script>
+</body>
+<script type="text/javascript">
+	console.log('inicio');
+	var socket = io({
+		query:{
+			nombreUsuario:"<%=user.nombre%>"
+		}
+	});
+	/*
+	socket.on('nuevaConexion',function (msgs) {
+		console.log('nuevaConexion');
+		
+		mensages=msgs;
+		contenedorMensajes.innerHTML='';
+		
+	});
+	*/
+	var cliente;
+	cajaTexto.focus();
+	send.addEventListener('click',clickSubmit);
+	cajaTexto.addEventListener("keypress", function(event) {
+	    if (event.keyCode == 13) {
+	    	event.preventDefault();
+	    	send.click();	  
+	    }
+	});
+	
+	socket.on('mensajes', function(mensajes){
+		console.log('mensajes en cliente');
+		console.log(mensajes);
+		contenedorMensajes.innerHTML='';
+		for (var i = 0; i<mensajes.length; i++) {
+			if (mensajes[i].conected && mensajes[i].msg=='') {
+				contenedorMensajes.insertAdjacentHTML('beforeEnd',`<div class="mensajePropio">${mensajes[i].nombreUsuario} en ip:${mensajes[i].ip} se ha conectado</div>`);
+			}
+			else if(!mensajes[i].conected){
+				contenedorMensajes.insertAdjacentHTML('beforeEnd',`<div class="mensajePropio">${mensajes[i].id} en ip:${mensajes[i].ip} se ha desconectado</div>`);
+			}
+			else{
+				var mensaje;
+				if (mensajes[i].id==mensajes[i-1].id && mensajes[i-1].msg!=="") {
+					mensaje=mensajes[i].msg;
+				}
+				else{
+					mensaje=`<strong>${mensajes[i].nombreUsuario}:</strong></br> ${mensajes[i].msg}`;
+				}
+				console.log(mensajes[i]);
+				if (socket.query.nombreUsuario===mensajes[i].nombreUsuario) {
+					contenedorMensajes.insertAdjacentHTML('beforeEnd',`<div class="mensajeOtro">${mensaje}</div>`);
+				}
+				else{
+					contenedorMensajes.insertAdjacentHTML('beforeEnd',`<div class="mensajePropio">${mensaje}</div>`);
+				}	
+			}
+		}
+		contenedorMensajes.scrollTop=contenedorMensajes.scrollHeight;
+    });
+	
+	function clickSubmit(e) {
+		e.preventDefault();
+		if (cajaTexto.value) {
+			socket.emit('mensaje client',cajaTexto.value);
+			cajaTexto.value="";
+		}	
+	}
+</script>
+</html>

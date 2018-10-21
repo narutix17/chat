@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partials/appHead %>
+</head>
+<body class="grey lighten-5">
+	<% include partials/appHeader %>
+	<% include partials/appLoginModal %>
+	<div class="container">	
+		<div class="row" >
+		  <div class="row"></div>
+	      <div class="col s4 m4">
+	        <!-- Promo Content 1 goes here -->
+	        <div class="row" style="text-align: center;">
+	        	<div class="col s12 m12">
+	        		<img width="100%"  src="/static/assets/animat-chat-color.gif">
+	        	</div>
+	        	<div class="col s12 m12 grey-text text-darken-2" >
+	        		<p>
+	        			Pon a prueba nuestos productos cuando quieras y usalos libremente.
+	        		</p>
+	        	</div>
+	        </div>
+	        
+	      </div>
+	      <div class="col s4 m4">
+	      	<div class="row" style="text-align: center;">
+	        	<div class="col s12 m12">
+	        		<img class="circle responsive-circle" width="100%"  src="/static/assets/rocket.gif" >
+	        	</div>
+	        	<div class="col s12 m12 grey-text text-darken-2">
+	        		<p>
+	        			Pon a prueba nuestos productos cuando quieras y usalos libremente.
+	        		</p>
+	        	</div>
+	        </div>
+	        <!-- Promo Content 2 goes here -->
+	      </div>
+	      <div class="col s4 m4">
+	        <!-- Promo Content 3 goes here -->
+	        <div class="row" style="text-align: center;">
+	        	<div class="col s12 m12">
+	        		<img  width="100%"  src="/static/assets/connect.gif" >
+	        	</div>
+	        	<div class="col s12 m12 grey-text text-darken-2">
+	        		<p>
+	        			Pon a prueba nuestos productos cuando quieras y usalos libremente.
+	        		</p>
+	        	</div>
+	        </div>
+	      </div>
+
+	    </div>
+
+	</div>
+	<div class="row green accent-2  " style="margin-bottom: 0px">
+		<div class="col s6 m6">
+			<img  width="100%" height="100%"  src="/static/assets/webdesign2.png">
+		</div>
+		<div class="col s5 m5" style="font-size: 1.8vw; height: 100%;">
+			<div>
+				<br>
+				<br>
+				<p>
+					Nuestros productos ofrecen lo ultimo en diseno y tecnologias de la programacion web para grandes empresas. 
+				</p>
+				<br>
+				<p>
+					Puedes utilizar, testear, comentar y formar parte de nuestro grupo de desarrolladores para ayudar a la comunidad.
+				</p>
+			</div>	
+			
+			
+		</div>
+	</div>
+	 
+	<% include partials/appFooter %>
+	<script >
+		<% if(locals.flash) {%>
+
+		alert('<%=flash[Object.keys(flash)[0]]%>');
+		<% }%>
+
+	</script>
+</body>
+</html>
+
+

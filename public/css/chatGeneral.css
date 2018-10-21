@@ -1,0 +1,54 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+	background: black;
+}
+#contenedorMensajes{
+	background: rgb(61, 61, 61);
+	width: 100%;
+	height: 90%;
+	overflow-y: scroll;
+}
+#contenedorMensaje{
+	background: red;
+	width: 100%;
+	height: 10%;
+}
+#contenedorMensaje textarea{
+	width: 80%;
+	height: 100%;
+	outline: none;
+	border: 1px solid black;
+	resize: none;
+}
+
+#send{
+	width: 20%;
+	height: 100%;
+}
+form input,form textarea{
+	float: left;
+}
+.mensajePropio{
+	display: block;
+	margin-right: 8%;
+	margin-bottom: 1%;
+	padding: 0% 2% 0% 2%;
+	color: white;
+	border-radius: 4px;
+	background: rgb(43, 124, 255);
+}
+.mensajeOtro{
+	display: block;
+	margin-left: 8%;
+	margin-bottom: 1%;
+	padding: 0% 2% 0% 2%;
+	color: white;
+	border-radius: 4px;
+	background: rgb(255, 146, 73);
+}

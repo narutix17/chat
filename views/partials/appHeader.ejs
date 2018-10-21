@@ -1,0 +1,55 @@
+<nav>
+  <div class="nav-wrapper blue-grey darken-4">
+    <% if (locals.user) { %>
+    <a href="#!" class="brand-logo center grey-text text-lighten-2">Chat.io <%=user.nombre%></a>
+    <% }else{ %>
+    <a href="#!" class="brand-logo center grey-text text-lighten-2">Chat.io</a>
+    <% } %>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons grey-text text-darken-2">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#"><i class="material-icons grey-text text-lighten-1">info_outline</i></a></li>
+      <li><a href="#"><i class="material-icons grey-text text-lighten-1">home</i></a></li>
+      <% if (locals.user) { %>
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdownUser"><i class="material-icons right green-text text-accent-2">arrow_drop_down</i><i class="material-icons green-text text-accent-2">person</i></a></li>
+      
+      <% }else{ %>
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdownUser"><i class="material-icons right grey-text text-lighten-1">arrow_drop_down</i><i class="material-icons grey-text text-lighten-1">person</i></a></li>
+      <%}%>
+      
+    </ul>
+  </div>
+</nav>
+<!-- Dropdown Structure -->
+<ul id="dropdownUser" class="dropdown-content js-signin-modal-trigger">
+  <% if (locals.user) { %>
+  <li><a href="#0" class="grey-text text-darken-2"><i class="material-icons">build</i>Perfil</a></li>
+  <li><a href="/chat" class="grey-text text-darken-2" ><i class="material-icons">chat</i>chat</a></li>
+  <li><a href="/sign/logoutPassport" class="grey-text text-darken-2" ><i class="material-icons">close</i>logout</a></li>
+  <% }else{ %>
+  <li><a href="#0" class="grey-text text-darken-2" data-signin="signup"><i class="material-icons">mode_edit</i>Registrate</a></li>
+  <li><a href="#0" class="grey-text text-darken-2" data-signin="login"><i class="material-icons">vpn_key</i>Login</a></li>
+  <%}%>
+  
+</ul>
+<ul class="sidenav grey lighten-2" id="mobile-demo">
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header "><i class="material-icons">person</i><i class="material-icons right">arrow_drop_down</i>Usuario</a>
+        <div class="collapsible-body grey lighten-1">
+          <ul class="js-signin-modal-trigger">
+            <% if (locals.user) { %>
+            <li><a href="#0" class="grey-text text-darken-2 sidenav-close"><i class="material-icons">build</i>Perfil</a></li>
+            <li><a href="/chat" class="grey-text text-darken-2 sidenav-close" ><i class="material-icons">chat</i>chat</a></li>
+            <li><a href="/sign/logoutPassport" class="grey-text text-darken-2 sidenav-close" ><i class="material-icons">close</i>logout</a></li>
+            <% }else{ %>
+            <li><a href="#0" class="grey-text text-darken-2 sidenav-close" data-signin="signup"><i class="material-icons">mode_edit</i>Registrate</a></li>
+            <li><a href="#0" class="grey-text text-darken-2 sidenav-close" data-signin="login"><i class="material-icons">vpn_key</i>Login</a></li>
+            <%}%>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <li><a href="collapsible.html">about</a></li>
+    <li><a href="mobile.html">registrate</a></li>
+</ul>
+

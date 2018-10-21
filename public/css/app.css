@@ -1,0 +1,28 @@
+*{
+	margin: 0px;
+	padding:0px;
+	box-sizing: border-box;
+	/*font-family: 'Dancing Script', cursive;*/
+	
+	/*font-family: 'Indie Flower', cursive;*/
+	/*font-family: 'Sacramento', cursive;*/
+	/*font-family: 'Allura', cursive;*/
+	/*font-family: 'Parisienne', cursive;*/
+	/*font-family: 'Graduate', cursive;*/
+	/*font-family: 'Schoolbell', cursive;*/
+	/*font-family: 'Crafty Girls', cursive;*/
+	/*font-family: 'Rouge Script', cursive;*/
+	/*font-family: 'Delius Swash Caps', cursive;*/
+	/*font-family: 'Life Savers', cursive;*/
+	font-family: 'Milonga', cursive;
+	
+}
+
+.custom{
+	all:initial;
+}
+.custom *{
+	all:unset;
+}
+
+
